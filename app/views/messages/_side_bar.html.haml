@@ -1,0 +1,25 @@
+.wrapper__side-bar
+
+  .wrapper__side-bar__top
+    .wrapper__side-bar__top__box
+      .wrapper__side-bar__top__box__name
+        kana
+      .wrapper__side-bar__top__box__icons
+        = link_to "#", class: "side-icons" do
+          = icon('fa', 'edit', class: "new-group")
+          = icon('fa', 'cog', class: "edit-account")
+
+  .wrapper__side-bar__group-list
+    .wrapper__side-bar__group-list__groups
+      .wrapper__side-bar__group-list__groups__name
+        techcamp
+      .wrapper__side-bar__group-list__groups__message
+        まだメッセージがありません
+
+    // 以下、グループ複数表示用コピー
+    .wrapper__side-bar__group-list__groups
+      .wrapper__side-bar__group-list__groups__name
+        techcamp2
+      .wrapper__side-bar__group-list__groups__message
+        まだメッセージがありません
+    // ここまで
