@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+}
+
+// ボタン用カラー
+$btn_color: #38aef0;
+
+// サイドバー用フォント（色・サイズ）
+@mixin side-bar-font($font-size){
+  color: #ffffff;
+  font-size: $font-size;
+  font-weight: bold;
+}
+// メイン画面用フォント（色・サイズ・マージン）
+@mixin main-massage-info($margin-left){
+  color: #999999;
+  font-size: 12px;
+  margin-left: $margin-left;
+}
+
+// カラー＆サイズフォーマット
+@mixin color_size($color,$font-size ){
+  color: $color;
+  font-size: $font-size;
+}
+
+
+.wrapper {
+  height: 100vh;
+  width:100%;
+
+  &__side-bar {
+    height: 100vh;
+    width: 300px;
+    float: left;
+
+    &__top {
+      background-color: #253141;
+      height: 100px;
+      position: relative;
+ 
+      &__box {
+        height: 20px;
+        width: 260px;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        line-height: 20px;
+
+        &__name {
+          @include side-bar-font(16px);
+        }
+
+        &__icons {
+          width: 60px;
+          text-align: right;
+
+        .side-icons {
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        .new-group {
+          margin-right: 5px;
+        }
+        }
+      }
+    }
+
+    &__group-list {
+      background-color: #2f3e51;
+      height: calc(100% - 100px);
+      padding: 20px 20px 0;
+
+      &__groups {
+        padding-bottom:40px;
+
+        &__name {
+          @include side-bar-font(15px);
+          padding-bottom: 5px;
+        }
+
+        &__message {
+          @include side-bar-font(11px);
+        }
+      }
+    }
+  }
+  
+  &__main-chat {
+    height: 100vh;
+    width: calc(100% - 300px);
+    float: right;
+
+    &__group-info {
+      background-color:#ffffff;
+      height: 100px;
+      border-bottom: solid 1px #eeeeee;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+
+      &__left {
+
+        &__group-name {
+          @include color_size(#333333, 20px);
+          margin: 35px 0px 15px;
+        }
+
+        &__member {
+          @include color_size(#999999,12px);
+        }
+
+      }
+
+      &__right {
+        display: flex;
+        align-items: center;
+
+        &__btn {
+          border: solid 1px $btn_color;
+          font-size: 16px;
+          padding: 0px 20px;
+          line-height: 40px;
+
+          .edit-btn {
+            text-decoration: none;
+            color: $btn_color;
+          }
+        }
+      }
+    }
+
+    &__message-list {
+      background-color: #fafafa;
+      height: calc(100vh - 190px);
+      padding: 35px 0 0 40px;
+
+      &__messages {
+        padding-bottom: 46px;
+
+        &__name {
+          color: #333333;
+          font-size: 16px;
+          margin-bottom: 12px;
+          display: flex;
+
+          &__date {
+            @include main-massage-info(10px);
+          }
+
+          &__timestamp {
+            @include main-massage-info(5px)
+          }
+        }
+
+        &__message {
+          @include color_size(#434A54, 14px);
+        }
+      }
+    }
+
+    &__message-form {
+      background-color: #d2d2d2;
+      height: 90px;
+      display: flex;
+      align-items: center;
+
+      &__input-box {
+        height: 50px;
+        width: 100%;
+        margin-left: 40px;
+        display: flex;
+        position: relative;
+
+      .text-box {
+        height: 50px;
+        width: 100%;
+        padding-left: 10px;
+        border-style: none;
+      }
+
+      
+      .input-box__image {
+        input {
+          display: none;
+       }
+        position: absolute;
+        right: 10px;
+        top:10px;
+        font-size: 1.3rem;
+      }
+      }
+
+      .send-btn {
+        height: 50px;
+        width: 100px;
+        padding: 0 30px;
+        margin: 0 40px 0 15px;
+        background-color: $btn_color;
+        color: white;
+        line-height: 50px;
+      }
+    }
+  }
+}
