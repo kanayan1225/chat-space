@@ -5,22 +5,16 @@
       .wrapper__side-bar__top__box__name
         = current_user.name
       .wrapper__side-bar__top__box__icons
-        = link_to "#", class: "side-icons" do
+        = link_to new_group_path, class: "side-icons" do
           = icon('fa', 'edit', class: "new-group")
         = link_to edit_user_path(current_user), class: "side-icons" do
           = icon('fa', 'cog', class: "edit-account")
 
   .wrapper__side-bar__group-list
-    .wrapper__side-bar__group-list__groups
-      .wrapper__side-bar__group-list__groups__name
-        techcamp
-      .wrapper__side-bar__group-list__groups__message
-        まだメッセージがありません
-
-    // 以下、グループ複数表示用コピー
-    .wrapper__side-bar__group-list__groups
-      .wrapper__side-bar__group-list__groups__name
-        techcamp2
-      .wrapper__side-bar__group-list__groups__message
-        まだメッセージがありません
-    // ここまで
+    - current_user.groups.each do |group|
+      .wrapper__side-bar__group-list__groups
+        = link_to '#' do
+          .wrapper__side-bar__group-list__groups__name
+            = group.name
+          .wrapper__side-bar__group-list__groups__message
+            メッセージはまだありません。
