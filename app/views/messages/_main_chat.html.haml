@@ -3,40 +3,27 @@
   .wrapper__main-chat__group-info
     .wrapper__main-chat__group-info__left
       .wrapper__main-chat__group-info__left__group-name
-        test
+        = @group.name
       .wrapper__main-chat__group-info__left__member
-        Member：kana
+        Member：
+        - @group.users.each do |user|
+          = user.name
     .wrapper__main-chat__group-info__right
       .wrapper__main-chat__group-info__right__btn
-        = link_to "Edit","#", class: 'edit-btn'
+        = link_to "Edit", edit_group_path(@group), class: 'edit-btn'
+        -# = link_to "Edit", "edit", class: 'edit-btn'
+        -# = link_to "Edit", "/groups/#{@group.id}/edit", class: 'edit-btn'
+
+
 
   .wrapper__main-chat__message-list
-    .wrapper__main-chat__message-list__messages
-      .wrapper__main-chat__message-list__messages__name
-        kana
-        .wrapper__main-chat__message-list__messages__name__date
-          2020/4/20(Mon)
-        .wrapper__main-chat__message-list__messages__name__timestamp
-          13:00:00
-      .wrapper__main-chat__message-list__messages__message
-        おはよう！
-
-    // 以下、複数データ表示用コピー
-    .wrapper__main-chat__message-list__messages
-      .wrapper__main-chat__message-list__messages__name
-        kana
-        .wrapper__main-chat__message-list__messages__name__date
-          2020/4/20(Mon)
-        .wrapper__main-chat__message-list__messages__name__timestamp
-          13:00:00
-      .wrapper__main-chat__message-list__messages__message
-        こんにちは！
-    // ここまで
+    = render partial: 'message', collection: @messages
 
   .wrapper__main-chat__message-form
-    .wrapper__main-chat__message-form__input-box
-      %input{type: "text", placeholder: "type a message", class: "text-box"}
-      %label{class: "input-box__image"}
-        =icon('far', 'image')
-        %input{type: "file", class: "image-icon"}
-    %input{type: "submit", value: "Send", class: "send-btn"}  
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'text-box', placeholder: 'type a message'  
+      .wrapper__main-chat__message-form__btn
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'image-icon'
+      = f.submit 'Send', class: 'send-btn'

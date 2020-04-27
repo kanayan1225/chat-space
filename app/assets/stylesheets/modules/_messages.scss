@@ -140,72 +140,67 @@ $btn_color: #38aef0;
       background-color: #fafafa;
       height: calc(100vh - 190px);
       padding: 35px 0 0 40px;
+      overflow: scroll;
 
-      &__messages {
-        padding-bottom: 46px;
+      &__upper-messages {
+        padding-bottom: 12px;
+        display: flex;
 
         &__name {
           color: #333333;
           font-size: 16px;
-          margin-bottom: 12px;
-          display: flex;
-
-          &__date {
-            @include main-massage-info(10px);
-          }
-
-          &__timestamp {
-            @include main-massage-info(5px)
-          }
         }
 
-        &__message {
-          @include color_size(#434A54, 14px);
+        &__date {
+          @include main-massage-info(10px);
         }
+      }
+
+      &__lower-messages {
+        @include color_size(#434A54, 14px);
+        margin-bottom: 46px;
       }
     }
 
     &__message-form {
       background-color: #d2d2d2;
       height: 90px;
-      display: flex;
-      align-items: center;
+      padding: 20px 40px;
+      position: relative;
 
-      &__input-box {
-        height: 50px;
-        width: 100%;
-        margin-left: 40px;
-        display: flex;
-        position: relative;
 
       .text-box {
         height: 50px;
-        width: 100%;
+        width: calc(100% - 115px);
         padding-left: 10px;
-        border-style: none;
+
       }
 
-      
-      .input-box__image {
-        input {
-          display: none;
-       }
+      &__btn {
         position: absolute;
-        right: 10px;
-        top:10px;
-        font-size: 1.3rem;
-      }
-      }
+        right: 170px;
+        top: 30px;
 
-      .send-btn {
-        height: 50px;
-        width: 100px;
-        padding: 0 30px;
-        margin: 0 40px 0 15px;
-        background-color: $btn_color;
-        color: white;
-        line-height: 50px;
-      }
+        .input-box__image {
+          input {
+            display: none;
+         }
+          right: 10px;
+          top:10px;
+          font-size: 1.3rem;
+        }
+        }
+
+        .send-btn {
+          height: 50px;
+          width: 100px;
+          padding: 0 30px;
+          margin-left: 15px;
+          background-color: $btn_color;
+          color: white;
+          line-height: 50px;
+          position: absolute;
+        }
     }
   }
 }
