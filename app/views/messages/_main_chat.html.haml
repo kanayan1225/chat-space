@@ -16,8 +16,9 @@
 
 
 
-  .wrapper__main-chat__message-list
-    = render partial: 'message', collection: @messages
+  .wrapper__main-chat__messages
+    .wrapper__main-chat__messages__message
+      = render partial: 'message', collection: @messages
 
   .wrapper__main-chat__message-form
     = form_for [@group, @message] do |f|

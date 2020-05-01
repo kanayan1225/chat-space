@@ -1,11 +1,11 @@
-.wrapper__main-chat__message-list__upper-messages
-  .wrapper__main-chat__message-list__upper-messages__name
+.wrapper__main-chat__messages__message__upper
+  .wrapper__main-chat__messages__message__upper__name
     = message.user.name
-  .wrapper__main-chat__message-list__upper-messages__date
+  .wrapper__main-chat__messages__message__upper__date
     = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
 
-.wrapper__main-chat__message-list__lower-messages
+.wrapper__main-chat__messages__message__lower
   - if message.content.present?
-    %p.lower-messages__content
+    %p.lower__content
       = message.content
-  = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+  = image_tag message.image.url, class: 'lower__image' if message.image.present?
