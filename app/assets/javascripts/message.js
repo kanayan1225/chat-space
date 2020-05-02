@@ -58,7 +58,7 @@ $(function(){
       console.log(data)
       var html = buildHTML(data);
       $('.wrapper__main-chat__messages').append(html);
-      $('.wrapper__main-chat__messages').animate({ scrollTop: $('.wrapper__main-chat__messages__message')[0].scrollHeight});
+      $('.wrapper__main-chat__messages').animate({ scrollTop: $('.wrapper__main-chat__messages')[0].scrollHeight});
       $('form')[0].reset();
       $('.send-btn').prop('disabled', false);
     })
