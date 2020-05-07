@@ -79,6 +79,10 @@ $btn_color: #38aef0;
 
       &__groups {
         padding-bottom:40px;
+        
+        .group-message {
+        text-decoration: none;
+        }
 
         &__name {
           @include side-bar-font(15px);
