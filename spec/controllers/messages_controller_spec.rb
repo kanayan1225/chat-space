@@ -47,7 +47,7 @@ describe MessagesController do
       context '保存に成功した場合' do
         subject {
           post :create,
-          params: params
+               params: params
         }
 
         it 'messageを保存すること' do
@@ -65,7 +65,7 @@ describe MessagesController do
 
         subject {
           post :create,
-          params: invalid_params
+               params: invalid_params
         }
 
         it 'messageを保存しないこと' do
